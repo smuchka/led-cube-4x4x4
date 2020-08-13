@@ -11,6 +11,10 @@ void setVoxel(uint8_t x, uint8_t z, uint8_t y) {
   cube[y][z] |= (0x01 << x);
 }
 
+bool getVoxel(uint8_t x, uint8_t z, uint8_t y) {
+  return bitRead(cube[y][z], x) == 1;
+}
+
 void renderCube() {
   //  Serial.println("");
   for (uint8_t y = 0; y < cube_size; y++) {
