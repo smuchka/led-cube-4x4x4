@@ -1,9 +1,7 @@
 # LedCube 4x4x4
-4x4x4 Led cube on Arduino
-
+Led cube 4x4x4 on Arduino
 
 ![Version 1.0](./led-cube.gif)
-
 
 # Cube modes
 Const | ID | Description
