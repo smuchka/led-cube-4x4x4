@@ -10,6 +10,9 @@
 #define CUBE_BLINK 3
 #define CUBE_BLINK_TIME 300
 
+#define CUBE_RAIN 4
+#define CUBE_RAIN_TIME 260
+
 // DIRS
 #define SHIFT_NEG_Y 1
 
@@ -34,8 +37,7 @@ void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
 
   loading = true;
-  currentEffect = CUBE_BLINK;
-  
+  currentEffect = CUBE_RAIN;
   changeMode();
 
   Serial.println("\n  * * * * * * * * * * * * ");
@@ -56,6 +58,7 @@ void loop() {
     case CUBE_COLUMN_CIRCLE: cubeColumnsCircle(); break;
     case CUBE_LIGHT: cubeLight(); break;
     case CUBE_BLINK: cubeBlink(); break;
+    case CUBE_RAIN: cubeRain(); break;
    }
  
   renderCube();
@@ -82,6 +85,10 @@ void changeMode() {
     case CUBE_BLINK:
       modeTimer = CUBE_BLINK_TIME;
       modeTitle = "CUBE_BLINK";
+    break;
+    case CUBE_RAIN:
+      modeTimer = CUBE_RAIN_TIME;
+      modeTitle = "CUBE_RAIN";
     break;
   }
 }

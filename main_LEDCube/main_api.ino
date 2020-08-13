@@ -54,6 +54,18 @@ void lightCube() {
   }
 }
 
+void shift(uint8_t dir) {
+  if (dir == SHIFT_NEG_Y) {
+    for (uint8_t y = 0; y < cube_size-1; y++) {
+      for (uint8_t z = 0; z < cube_size; z++) {
+        cube[y][z] = cube[y + 1][z];
+      }
+    }
+    for (uint8_t i = 0; i < cube_size; i++) {
+      cube[cube_size-1][i] = 0;
+    }
+  }
+}
 
 byte getPullFourBits(byte firstValue, byte secondValue) {
   byte value = 0;
