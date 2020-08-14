@@ -13,6 +13,15 @@
 #define CUBE_RAIN 4
 #define CUBE_RAIN_TIME 260
 
+#define CUBE_GLOWING 5
+#define CUBE_GLOWING_TIME 240
+
+#define CUBE_FILLING 6
+#define CUBE_FILLING_TIME 540
+
+#define CUBE_PLANE_MOVING 7
+#define CUBE_PLANE_MOVING_TIME 550
+
 // DIRS
 #define SHIFT_NEG_Y 1
 
@@ -37,7 +46,7 @@ void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
 
   loading = true;
-  currentEffect = CUBE_RAIN;
+  currentEffect = CUBE_PLANE_MOVING;
   changeMode();
 
   Serial.println("\n  * * * * * * * * * * * * ");
@@ -49,16 +58,14 @@ void setup() {
 }
 
 void loop() {
-  
-  // Check button to switch mode
-  // butt1.isClick
-  // changeMode();
-  
    switch (currentEffect) {
     case CUBE_COLUMN_CIRCLE: cubeColumnsCircle(); break;
     case CUBE_LIGHT: cubeLight(); break;
     case CUBE_BLINK: cubeBlink(); break;
     case CUBE_RAIN: cubeRain(); break;
+    case CUBE_GLOWING: cubeGlowing(); break;
+    case CUBE_FILLING: cubeFilling(); break;
+    case CUBE_PLANE_MOVING: cubePlaneMoving(); break;
    }
  
   renderCube();
@@ -89,6 +96,18 @@ void changeMode() {
     case CUBE_RAIN:
       modeTimer = CUBE_RAIN_TIME;
       modeTitle = "CUBE_RAIN";
+    break;
+    case CUBE_GLOWING:
+      modeTimer = CUBE_GLOWING_TIME;
+      modeTitle = "CUBE_GLOWING";
+    break;
+    case CUBE_FILLING:
+      modeTimer = CUBE_FILLING_TIME;
+      modeTitle = "CUBE_FILLING";
+    break;
+    case CUBE_PLANE_MOVING:
+      modeTimer = CUBE_PLANE_MOVING_TIME;
+      modeTitle = "CUBE_PLANE_MOVING";
     break;
   }
 }

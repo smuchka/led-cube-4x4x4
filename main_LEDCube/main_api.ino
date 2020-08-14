@@ -15,6 +15,10 @@ bool getVoxel(uint8_t x, uint8_t z, uint8_t y) {
   return bitRead(cube[y][z], x) == 1;
 }
 
+void clearVoxel(uint8_t x, uint8_t z, uint8_t y) {
+  cube[cube_size - 1 - y][cube_size - 1 - z] ^= (0x01 << x);
+}
+
 void renderCube() {
   //  Serial.println("");
   for (uint8_t y = 0; y < cube_size; y++) {
@@ -64,6 +68,30 @@ void shift(uint8_t dir) {
     for (uint8_t i = 0; i < cube_size; i++) {
       cube[cube_size-1][i] = 0;
     }
+  }
+}
+
+void plane(uint8_t dir, uint8_t level) {
+  switch(dir) {
+    case SIDE_X: 
+      for (uint8_t y = 0; y < cube_size; y++) {
+        for (uint8_t z = 0; z < cube_size; z++) {
+          cube[y][z] = 0x01 << level;
+        }
+      }
+    break;
+    
+    case SIDE_Y: 
+      for (uint8_t i = 0; i < cube_size; i++) {
+        cube[level][i] = 0xFF;
+      }
+    break;
+    
+    case SIDE_Z: 
+      for (uint8_t i = 0; i < cube_size; i++) {
+        cube[i][level] = 0xFF;
+      }
+    break;
   }
 }
 
