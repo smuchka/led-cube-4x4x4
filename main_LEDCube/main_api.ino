@@ -71,6 +71,30 @@ void shift(uint8_t dir) {
   }
 }
 
+void plane(uint8_t dir, uint8_t level) {
+  switch(dir) {
+    case SIDE_X: 
+      for (uint8_t y = 0; y < cube_size; y++) {
+        for (uint8_t z = 0; z < cube_size; z++) {
+          cube[y][z] = 0x01 << level;
+        }
+      }
+    break;
+    
+    case SIDE_Y: 
+      for (uint8_t i = 0; i < cube_size; i++) {
+        cube[level][i] = 0xFF;
+      }
+    break;
+    
+    case SIDE_Z: 
+      for (uint8_t i = 0; i < cube_size; i++) {
+        cube[i][level] = 0xFF;
+      }
+    break;
+  }
+}
+
 byte getPullFourBits(byte firstValue, byte secondValue) {
   byte value = 0;
   // 0x xxxx____
