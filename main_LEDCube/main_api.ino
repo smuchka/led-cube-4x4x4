@@ -11,6 +11,10 @@ void setVoxel(uint8_t x, uint8_t z, uint8_t y) {
   cube[y][z] |= (0x01 << x);
 }
 
+bool getVoxel(uint8_t x, uint8_t z, uint8_t y) {
+  return bitRead(cube[y][z], x) == 1;
+}
+
 void renderCube() {
   //  Serial.println("");
   for (uint8_t y = 0; y < cube_size; y++) {
@@ -50,6 +54,18 @@ void lightCube() {
   }
 }
 
+void shift(uint8_t dir) {
+  if (dir == SHIFT_NEG_Y) {
+    for (uint8_t y = 0; y < cube_size-1; y++) {
+      for (uint8_t z = 0; z < cube_size; z++) {
+        cube[y][z] = cube[y + 1][z];
+      }
+    }
+    for (uint8_t i = 0; i < cube_size; i++) {
+      cube[cube_size-1][i] = 0;
+    }
+  }
+}
 
 byte getPullFourBits(byte firstValue, byte secondValue) {
   byte value = 0;
