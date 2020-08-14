@@ -15,6 +15,10 @@ bool getVoxel(uint8_t x, uint8_t z, uint8_t y) {
   return bitRead(cube[y][z], x) == 1;
 }
 
+void clearVoxel(uint8_t x, uint8_t z, uint8_t y) {
+  cube[cube_size - 1 - y][cube_size - 1 - z] ^= (0x01 << x);
+}
+
 void renderCube() {
   //  Serial.println("");
   for (uint8_t y = 0; y < cube_size; y++) {
