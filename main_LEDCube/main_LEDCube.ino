@@ -16,6 +16,9 @@
 #define CUBE_GLOWING 5
 #define CUBE_GLOWING_TIME 240
 
+#define CUBE_FILLING 6
+#define CUBE_FILLING_TIME 540
+
 // DIRS
 #define SHIFT_NEG_Y 1
 
@@ -40,7 +43,7 @@ void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
 
   loading = true;
-  currentEffect = CUBE_GLOWING;
+  currentEffect = CUBE_FILLING;
   changeMode();
 
   Serial.println("\n  * * * * * * * * * * * * ");
@@ -63,6 +66,7 @@ void loop() {
     case CUBE_BLINK: cubeBlink(); break;
     case CUBE_RAIN: cubeRain(); break;
     case CUBE_GLOWING: cubeGlowing(); break;
+    case CUBE_FILLING: cubeFilling(); break;
    }
  
   renderCube();
@@ -98,5 +102,9 @@ void changeMode() {
       modeTimer = CUBE_GLOWING_TIME;
       modeTitle = "CUBE_GLOWING";
     break;
+    case CUBE_FILLING:
+      modeTimer = CUBE_FILLING_TIME;
+      modeTitle = "CUBE_FILLING";
+    break;    
   }
 }
