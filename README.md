@@ -16,9 +16,12 @@ CUBE_FILLING | 6 | Random direction shake
 CUBE_PLANE_MOVING | 7 | Random moving plane
 
 
+##### Gif with cube modes
 ![Cube mode](./files/led-cube-mode.gif)
 
-> [Link](./files/Schematic_LE_ cube_4x4x4.png) on Schematic of project
+
+##### [Schematic of project](https://github.com/smuchka/led-cube-4x4x4/blob/develop/files/Schematic_LE_%20cube_4x4x4.png)
+
 
 ## Task
 - [x] create starter project
