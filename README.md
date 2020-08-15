@@ -1,10 +1,10 @@
 # LedCube 4x4x4
 Led cube 4x4x4 on Arduino
 
-![Version 1.0](./led-cube.gif)
+![Preview 1.0](./files/led-cube.gif)
 
 
-# Cube modes
+## Cube modes
 Const | ID | Description
 -----|--|------------
 CUBE_COLUMN_CIRCLE | 1 | One column running on outside round
@@ -16,9 +16,16 @@ CUBE_FILLING | 6 | Random direction shake
 CUBE_PLANE_MOVING | 7 | Random moving plane
 
 
-Task Lists
+##### Gif with cube modes
+![Cube mode](./files/led-cube-mode.gif)
+
+
+##### [Schematic of project](https://github.com/smuchka/led-cube-4x4x4/blob/develop/files/Schematic_LE_%20cube_4x4x4.png)
+
+
+## Task
 - [x] create starter project
-- cube modes
+- several mode
     - [x] running column
     - [x] alight cube
     - [x] blink cube
@@ -26,5 +33,6 @@ Task Lists
     - [x] random cube filling
     - [x] random direction shake
     - [x] moving plane
-- [ ] rebuild device on NodeMCU platform for switching mode from WebClient
-- [ ] (?) add button on device for switching modes
+- switching mode outside code
+    - [ ] rebuild device on NodeMCU platform
+    - [ ] add button on device
